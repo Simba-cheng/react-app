@@ -1,21 +1,29 @@
-import {Fragment} from "react";
+import {useState} from "react";
 
-function ListGroup() {
-    let items = [
-        'New York', 'San Francisco', 'Tokyo', 'London', 'Paris'
-    ];
-    items = [];
+interface Props {
+    items: string[],
+    heading: string
+}
 
-    const getMessage = () => {
-        return items.length === 0 ? <p>No item found</p> : null;
-    }
+function ListGroup(props: Props) {
+    // 告诉 react, 此参数会动态变化.
+    const [selectedIndex, setSelectedIndex] = useState(-1);
 
     return (
         <>
             <h1>List Group</h1>
-            {getMessage()}
+            {props.items.length === 0 && <p>No item found</p>}
             <ul className="list-group">
-                {items.map(item => <li className="list-group-item" key={item}>{item}</li>)}
+                {props.items.map((item, index) => (
+                    <li
+                        className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
+                        key={item}
+                        onClick={() => {
+                            setSelectedIndex(index);
+                        }}>
+                        {item}
+                    </li>
+                ))}
             </ul>
         </>
     );
