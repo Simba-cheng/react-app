@@ -1,6 +1,7 @@
 import ListGroup from "./components/ListGroup";
 import Alter from "./components/Alter";
 import {Button} from "./components/Button";
+import {useState} from "react";
 
 // function App() {
 //     const handleSelectItem = (item: string) => {
@@ -30,9 +31,14 @@ import {Button} from "./components/Button";
 
 
 function App() {
+
+    // 告诉 react, 此参数会动态变化.
+    const [isShowAlterMessage, setIsShowAlterMessage] = useState(false);
+
     return (
         <div>
-            <Button onClick={() => console.log('Clicked')}>click it</Button>
+            {isShowAlterMessage && <Alter>alter message</Alter>}
+            <Button onClick={() => setIsShowAlterMessage(true)}>click it</Button>
         </div>
     );
 }
