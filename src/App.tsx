@@ -29,7 +29,10 @@ import {useState} from "react";
 //     );
 // }
 
-
+/**
+ *
+ * @constructor
+ */
 function App() {
 
     // 告诉 react, 此参数会动态变化.
@@ -37,7 +40,7 @@ function App() {
 
     return (
         <div>
-            {isShowAlterMessage && <Alter>alter message</Alter>}
+            {isShowAlterMessage ? <Alter>alter message</Alter> : null}
             <Button onClick={() => setIsShowAlterMessage(true)}>click it</Button>
         </div>
     );
