@@ -29,10 +29,6 @@ import {useState} from "react";
 //     );
 // }
 
-/**
- *
- * @constructor
- */
 function App() {
 
     // 告诉 react, 此参数会动态变化.
