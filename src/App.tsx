@@ -36,7 +36,7 @@ function App() {
 
     return (
         <div>
-            {isShowAlterMessage ? <Alter>alter message</Alter> : null}
+            {isShowAlterMessage ? <Alter onClose={() => setIsShowAlterMessage(false)}>alter message</Alter> : null}
             <Button onClick={() => setIsShowAlterMessage(true)}>click it</Button>
         </div>
     );

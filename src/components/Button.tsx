@@ -6,6 +6,7 @@ interface Props {
     // color?: string;
     // 只能是以下几个选项
     color?: 'primary' | 'secondary' | 'danger';
+    // 类似 Java 中的行为参数化, 将行为(需要执行的动作方法)通过参数传递
     onClick: () => void
 }
 
